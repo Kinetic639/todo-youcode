@@ -2,11 +2,9 @@
   const tasks = [
     {
       content: "Iść na zakupy",
-      done: true,
     },
     {
       content: "skończyć moduł 6",
-      done: false,
     },
   ];
 
@@ -23,10 +21,17 @@
     render();
   };
 
+  const toggleTaskDone = (i) => {
+    tasks[i].done = !tasks[i].done
+    render()
+  }
+  
+
   const render = () => {
     let htmlString = "";
     for (const task of tasks) {
       htmlString += `
+      <button class="js-done">Czy zrobione?</button>
       <li ${task.done ? 'style="text-decoration: line-through"' : ""}>
       ${task.content}
       </li>
@@ -39,6 +44,13 @@
     removeButtons.forEach((btn, i) => {
       btn.addEventListener("click", () => {
         removeTask(i);
+      });
+    });
+
+    const doneButtons = document.querySelectorAll(".js-done");
+    doneButtons.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        toggleTaskDone(i);
       });
     });
   };
