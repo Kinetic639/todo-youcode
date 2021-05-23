@@ -22,24 +22,10 @@
   };
 
   const toggleTaskDone = (i) => {
-    tasks[i].done = !tasks[i].done
-    render()
-  }
-  
-
-  const render = () => {
-    let htmlString = "";
-    for (const task of tasks) {
-      htmlString += `
-      <button class="js-done">Czy zrobione?</button>
-      <li ${task.done ? 'style="text-decoration: line-through"' : ""}>
-      ${task.content}
-      </li>
-      <button class="js-remove">Usuń</button>
-      `;
-    }
-    document.querySelector(".js-tasks").innerHTML = htmlString;
-
+    tasks[i].done = !tasks[i].done;
+    render();
+  };
+  const bindEvents = () => {
     const removeButtons = document.querySelectorAll(".js-remove");
     removeButtons.forEach((btn, i) => {
       btn.addEventListener("click", () => {
@@ -53,6 +39,21 @@
         toggleTaskDone(i);
       });
     });
+  };
+
+  const render = () => {
+    let htmlString = "";
+    for (const task of tasks) {
+      htmlString += `
+      <button class="js-done">Czy zrobione?</button>
+      <li ${task.done ? 'style="text-decoration: line-through"' : ""}>
+      ${task.content}
+      </li>
+      <button class="js-remove">Usuń</button>
+      `;
+    }
+    document.querySelector(".js-tasks").innerHTML = htmlString;
+    bindEvents();
   };
 
   const onFormSubmit = (e) => {
