@@ -1,21 +1,14 @@
 {
-  const tasks = [
-    {
-      content: "Iść na zakupy",
-    },
-    {
-      content: "skończyć moduł 6",
-    },
-  ];
+  const tasks = [];
 
   const addNewTask = (newTaskContent) => {
     tasks.push({
       content: newTaskContent,
     });
 
-    const inputEl = document.querySelector(".js-newTask")    
-    inputEl.value = ''
-    inputEl.focus()
+    const inputEl = document.querySelector(".js-newTask");
+    inputEl.value = "";
+    inputEl.focus();
     render();
   };
 
@@ -51,7 +44,9 @@
       <li class="js-tasks__item" ${
         task.done ? 'style="text-decoration: line-through"' : ""
       }>
-      <button class="js-done">${task.done ? `<i class="fas fa-check"></i>` : ''}</button>
+      <button class="js-done">${
+        task.done ? `<i class="fas fa-check"></i>` : ""
+      }</button>
       <p class="task-content">${task.content}</p>
       <button class="js-remove"><i class="far fa-trash-alt"></i></button>
       </li>
