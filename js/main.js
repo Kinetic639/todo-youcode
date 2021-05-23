@@ -13,6 +13,9 @@
       content: newTaskContent,
     });
 
+    const inputEl = document.querySelector(".js-newTask")    
+    inputEl.value = ''
+    inputEl.focus()
     render();
   };
 
@@ -45,8 +48,10 @@
     let htmlString = "";
     for (const task of tasks) {
       htmlString += `
-      <li class="js-tasks__item" ${task.done ? 'style="text-decoration: line-through"' : ""}>
-      <button class="js-done"><i class="fas fa-check"></i></button>
+      <li class="js-tasks__item" ${
+        task.done ? 'style="text-decoration: line-through"' : ""
+      }>
+      <button class="js-done">${task.done ? `<i class="fas fa-check"></i>` : ''}</button>
       <p class="task-content">${task.content}</p>
       <button class="js-remove"><i class="far fa-trash-alt"></i></button>
       </li>
