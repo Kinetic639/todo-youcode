@@ -1,6 +1,6 @@
 
 
-![main view](https://github.com/Kinetic639/youcode-kantor/blob/main/img/miniatures/main_view.png?raw=true)
+![main view](https://github.com/Kinetic639/todo-youcode/blob/main/img/miniatures/main_view.png?raw=true)
 # Projekt Lista zadań Youcode
 Live Demo
 [https://kinetic639.github.io/todo-youcode/](https://kinetic639.github.io/todo-youcode/)
