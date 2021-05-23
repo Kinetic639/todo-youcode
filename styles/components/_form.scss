@@ -1,0 +1,17 @@
+
+.js-form {
+display: flex;
+
+}
+
+.js-newTask {
+    flex: 1;
+    border: 2px solid $c-light-grey;
+}
+
+.btn-submit {
+    background-color: $c-secondary;
+    color: $c-white;
+    margin-left: 1.5rem;
+    border: none;
+}

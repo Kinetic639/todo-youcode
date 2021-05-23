@@ -7,9 +7,114 @@ body {
   font-size: 1.6rem;
 }
 
+.wrapper {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.js-form,
+.js-tasks,
+.form-title {
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.form-title {
+  margin-bottom: .2rem;
+}
+
+.js-newTask,
+.btn-submit {
+  padding: .8rem 1.5rem;
+}
+
+.js-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.js-newTask {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 2px solid #EEEDEF;
+}
+
+.btn-submit {
+  background-color: #007383;
+  color: #ffffff;
+  margin-left: 1.5rem;
+  border: none;
+}
+
+.js-tasks {
+  list-style: none;
+  padding: 2rem;
+  margin: 0;
+}
+
+.js-tasks__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 1rem;
+  border-bottom: 1px solid #EEEDEF;
+}
+
+.task-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.js-done,
+.js-remove {
+  border: none;
+  color: #ffffff;
+  height: 3rem;
+}
+
+.js-done {
+  background-color: #1A7A1F;
+  margin-right: 1rem;
+}
+
+.js-remove {
+  background-color: #EF293F;
+  margin-left: 1rem;
+}
+
+@media (max-width: 474px) {
+  .js-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .btn-submit {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 810px) {
+  .header-title {
+    margin-left: 2rem;
+  }
+  .wrapper {
+    margin: 0 1.5rem;
+  }
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background-color: #EEEDEF;
 }
 
 *, ::before, ::after {

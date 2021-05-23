@@ -1,11 +1,14 @@
 @import "./base/settings";
 @import "./base/typography";
 @import "./base/layout";
+@import "./components/form";
+@import "./components/list";
 
 @import "./base/media";
 
 html {
   box-sizing: border-box;
+  background-color: $c-light-grey;
 }
 
 *, ::before, ::after {

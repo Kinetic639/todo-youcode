@@ -45,11 +45,11 @@
     let htmlString = "";
     for (const task of tasks) {
       htmlString += `
-      <button class="js-done">Czy zrobione?</button>
-      <li ${task.done ? 'style="text-decoration: line-through"' : ""}>
-      ${task.content}
+      <li class="js-tasks__item" ${task.done ? 'style="text-decoration: line-through"' : ""}>
+      <button class="js-done"><i class="fas fa-check"></i></button>
+      <p class="task-content">${task.content}</p>
+      <button class="js-remove"><i class="far fa-trash-alt"></i></button>
       </li>
-      <button class="js-remove">Usuń</button>
       `;
     }
     document.querySelector(".js-tasks").innerHTML = htmlString;
