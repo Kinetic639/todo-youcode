@@ -1,6 +1,16 @@
 html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #EEEDEF;
   font-family: "Montserrat", sans-serif;
   font-size: 62.5%;
+}
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 body {
@@ -10,28 +20,73 @@ body {
 .wrapper {
   max-width: 80rem;
   margin: 0 auto;
+  padding: 3rem 1.5rem 0;
 }
 
-.js-form,
-.js-tasks,
-.form-title {
+.section {
+  margin: 10px 0;
+  -webkit-box-shadow: 0 0 5px #ddd;
+          box-shadow: 0 0 5px #ddd;
   background-color: #ffffff;
+}
+
+.section__header {
+  border-bottom: 2px solid #EEEDEF;
+  padding: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section__header h2 {
+  margin: 0;
+  min-width: 16rem;
+}
+
+.section__body {
   padding: 2rem;
 }
 
-.form-title {
-  margin-bottom: .2rem;
-}
-
-.js-newTask,
-.btn-submit {
-  padding: .8rem 1.5rem;
-}
-
-.js-form {
+.section-options {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.section-options__button {
+  background-color: transparent;
+  border: none;
+  padding: .5rem;
+  color: #68A0A6;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.section-options__button:hover {
+  color: #61c9da;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.section-options__button:disabled {
+  color: #EEEDEF;
+}
+
+.section-options__button:disabled:hover {
+  cursor: default;
+}
+
+.js-form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  grid-gap: 1.5rem;
 }
 
 .js-newTask {
@@ -39,19 +94,29 @@ body {
       -ms-flex: 1;
           flex: 1;
   border: 2px solid #EEEDEF;
+  padding: 1rem;
 }
 
 .btn-submit {
   background-color: #007383;
   color: #ffffff;
-  margin-left: 1.5rem;
   border: none;
+  padding: 1rem;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.btn-submit:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .js-tasks {
   list-style: none;
-  padding: 2rem;
-  margin: 0;
+  padding: 1rem;
 }
 
 .js-tasks__item {
@@ -66,40 +131,67 @@ body {
   border-bottom: 1px solid #EEEDEF;
 }
 
+.js-tasks__item--hidden {
+  display: none;
+}
+
 .task-content {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  margin: 0 1rem;
 }
 
-.js-done,
-.js-remove {
+.task-content--done {
+  text-decoration: line-through;
+}
+
+.tasks__button {
   border: none;
-  color: #ffffff;
   height: 3rem;
-  min-width: 3rem;
+  width: 3rem;
+  color: #ffffff;
 }
 
-.js-done {
+.tasks__button--done {
   background-color: #1A7A1F;
-  margin-right: 1rem;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
-.js-remove {
+.tasks__button--done:hover {
+  background-color: #239929;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.tasks__button--remove {
   background-color: #EF293F;
-  margin-left: 1rem;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
-@media (max-width: 474px) {
+.tasks__button--remove:hover {
+  background-color: #fc5467;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+@media (max-width: 544px) {
   .js-form {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .section__header {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .section-options {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-  .btn-submit {
-    margin-left: 0;
-    margin-top: 1rem;
+    padding: 1.5rem 0 0;
   }
 }
 
@@ -107,19 +199,5 @@ body {
   .header-title {
     margin-left: 2rem;
   }
-  .wrapper {
-    margin: 0 1.5rem;
-  }
-}
-
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #EEEDEF;
-}
-
-*, ::before, ::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,46 @@
+.wrapper {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+.section {
+  margin: 10px 0;
+  box-shadow: 0 0 5px #ddd;
+  background-color: $c-white;
+  &__header {
+    border-bottom: 2px solid $c-light-grey;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    & h2 {
+      margin: 0;
+      min-width: 16rem;
+    }
+  }
+  &__body {
+    padding: 2rem;
+  }
+  &-options {
+      display: flex;
+    &__button {
+      background-color: transparent;
+      border: none;
+      padding: .5rem;
+      color: $c-link;
+      transition: all 0.1s ease-in-out;
+      &:hover {
+        color: $c-link-hover;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+      }
+      &:disabled {
+        color: $c-light-grey;
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+}

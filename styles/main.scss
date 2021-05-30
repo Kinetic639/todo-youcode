@@ -1,17 +1,31 @@
+$c-light-grey: #EEEDEF;
+$c-white: #ffffff;
+$c-secondary: #007383;
+$c-light-green: #239929;
+$c-green: #1A7A1F;
+$c-light-red: #fc5467;
+$c-red: #EF293F;
+$c-link: #68A0A6;
+$c-link-hover: #61c9da;
 
 html {
   box-sizing: border-box;
   background-color: $c-light-grey;
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5%;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   box-sizing: inherit;
 }
 
-@import "./base/settings";
-@import "./base/typography";
-@import "./base/layout";
-@import "./components/form";
-@import "./components/list";
-@import "./base/media";
+body {
+  font-size: 1.6rem;
+}
 
+@import "./layout";
+@import "./form";
+@import "./list";
+@import "./media";

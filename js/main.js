@@ -1,24 +1,44 @@
 {
-  const tasks = [];
+  let tasks = [];
+  let hideTasksDone = false;
 
-  const addNewTask = (newTaskContent) => {
-    tasks.push({
-      content: newTaskContent,
-    });
+  const toggleHideTasksDone = () => {
+    hideTasksDone = !hideTasksDone;
+    render();
+  };
 
+  const clearInputAndFocus = () => {
     const inputEl = document.querySelector(".js-newTask");
     inputEl.value = "";
     inputEl.focus();
+  };
+
+  const addNewTask = (newTaskContent) => {
+    tasks = [...tasks, { content: newTaskContent }];
+    clearInputAndFocus();
+    render();
+  };
+  const setAllTasksDone = () => {
+    tasks = tasks.map((task) => ({
+      ...task,
+      done: true,
+    }));
+
     render();
   };
 
   const removeTask = (i) => {
-    tasks.splice(i, 1);
+    tasks = [...tasks.slice(0, i), ...tasks.slice(i + 1)];
     render();
   };
 
   const toggleTaskDone = (i) => {
-    tasks[i].done = !tasks[i].done;
+    tasks = [
+      ...tasks.slice(0, i),
+      { ...tasks[i], done: !tasks[i].done },
+      ...tasks.slice(i + 1),
+    ];
+
     render();
   };
   const bindEvents = () => {
@@ -37,22 +57,55 @@
     });
   };
 
-  const render = () => {
-    let htmlString = "";
-    for (const task of tasks) {
-      htmlString += `
-      <li class="js-tasks__item" ${
-        task.done ? 'style="text-decoration: line-through"' : ""
-      }>
-      <button class="js-done">${
-        task.done ? `<i class="fas fa-check"></i>` : ""
-      }</button>
-      <p class="task-content">${task.content}</p>
-      <button class="js-remove"><i class="far fa-trash-alt"></i></button>
-      </li>
-      `;
+  const renderTasks = () => {
+    const taskToHtml = (task) => `
+    <li class="js-tasks__item ${
+      task.done && hideTasksDone ? " js-tasks__item--hidden" : ""
+    }  ">
+     <button class="tasks__button tasks__button--done js-done">${
+       task.done ? `<i class="fas fa-check"></i>` : ""
+     }</button>
+      <p class="task-content ${task.done ? "task-content--done" : ""}">${
+      task.content
+    }</p>
+     <button class="tasks__button tasks__button--remove js-remove"><i class="far fa-trash-alt"></i></button>
+    </li>
+    `;
+    document.querySelector(".js-tasks").innerHTML = tasks
+      .map(taskToHtml)
+      .join("");
+  };
+
+  const bindButtonsEvents = () => {
+    const setAllDoneButton = document.querySelector(
+      ".display-options__button--set-all-done"
+    );
+    const hideDoneButton = document.querySelector(
+      ".display-options__button--hide-done"
+    );
+    setAllDoneButton.addEventListener("click", setAllTasksDone);
+    hideDoneButton.addEventListener("click", toggleHideTasksDone);
+  };
+  const renderButtons = () => {
+    const buttonsContainer = document.querySelector(".section-options");
+    if (!tasks.length) {
+      buttonsContainer.innerHTML = "";
+    } else {
+      buttonsContainer.innerHTML = `
+<button class="section-options__button display-options__button--hide-done">${
+        hideTasksDone ? "Pokaż" : "Ukryj"
+      } ukończone</button>
+<button class="section-options__button display-options__button--set-all-done" ${
+        tasks.every(({ done }) => done) ? " disabled" : ""
+      }>Ukończ wszystkie</button>
+`;
+      bindButtonsEvents();
     }
-    document.querySelector(".js-tasks").innerHTML = htmlString;
+  };
+
+  const render = () => {
+    renderTasks();
+    renderButtons();
     bindEvents();
   };
 
@@ -69,7 +122,7 @@
 
   const init = () => {
     render();
-
+    clearInputAndFocus();
     const form = document.querySelector(".js-form");
     form.addEventListener("submit", onFormSubmit);
   };

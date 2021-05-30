@@ -38,19 +38,39 @@
     <title>Lista zadań Youcode</title>
   </head>
   <body>
-    <div class="wrapper">
+    <main class="wrapper">
       <header>
-        <h1 class="header-title">Lista zadań</h1>
+        <h1 class="header__title">Lista zadań</h1>
       </header>
-      <h2 class="form-title">Dodaj nowe zadanie</h2>
-      <form action="" class="js-form">
-        
-        <input type="text" class="js-newTask" placeholder="Co jest do zrobienia?"/>
-        <button type="submit" class="btn-submit">Dodaj zadanie</button>
-      </form>
+    <section class="section ">
+      <div class="section__header">        
+        <h2>Dodaj nowe zadanie</h2>
+      </div>
+     <section class="section__body">
+          <form action="" class="js-form">
+            <input
+              type="text"
+              class="js-newTask"
+              placeholder="Co jest do zrobienia?"
+              required
+            />
+            <button type="submit" class="btn-submit">Dodaj zadanie</button>
+          </form>
+     </section>
+    </section>
 
-      <h2 class="form-title">Lista zadań</h2>
-      <ul class="js-tasks"></ul>
-    </div>
+      <section class="section">
+       <header  class="section__header">
+          <h2>Lista zadań</h2>
+          <div class="section-options">
+          </div>
+       </header>
+        <div class="section__body">
+          
+          <ul class="js-tasks"></ul>
+        </div>
+      </section>
+    </main>
+  </body>
   </body>
 </html>

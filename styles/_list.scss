@@ -1,0 +1,47 @@
+.js-tasks {
+  list-style: none;
+  padding: 1rem;
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid $c-light-grey;
+    &--hidden {
+      display: none;
+    }
+  }
+}
+
+.task-content {
+  flex: 1;
+  margin: 0 1rem;
+  &--done {
+    text-decoration: line-through;
+  }
+}
+
+.tasks__button {
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  color: $c-white;
+  &--done {
+    background-color: $c-green;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      background-color: $c-light-green;
+      transition: all 0.1s ease-in-out;
+    }
+  }
+  &--remove {
+    background-color: $c-red;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      background-color: $c-light-red;
+      transition: all 0.1s ease-in-out;
+    }
+  }
+}
+
+
