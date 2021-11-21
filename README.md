@@ -53,7 +53,9 @@ Projekt stworzony w ramach bootcampu Youcode - Front end od podstaw
 ### Ciekawe funkcje:
 - Dodawanie nowych zadań
 - Zaznaczanie wykonania zadania
+- Ukrywanie/pokazywanie zakończonych zadań
 - Usuwanie zadań
+- Zaznaczanie wszystkich zadań jako ukończonych
 
 
 
